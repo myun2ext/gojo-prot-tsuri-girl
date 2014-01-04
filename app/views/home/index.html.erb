@@ -1,2 +1,156 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% content_for :head do %>
+
+<%= javascript_include_tag "http://maps.google.com/maps/api/js?key=AIzaSyDlSm6vjz7byp2PC4boKqUJW1jVaZ2IdPE&v=3&sensor=false" %>
+
+<script type="text/javascript">
+<!--
+function pointToLatLng(point) {
+  return new google.maps.LatLng(point.latlng[0], point.latlng[1]);
+}
+
+function marker(point, map)
+{
+  console.log(pointToLatLng(point));
+  console.log(map);
+  return new google.maps.Marker({
+    positon: pointToLatLng(point),
+    map: map
+  });
+}
+
+var gmap;
+
+function renderMap() {
+  var points = [
+    { name: "五城目町地域活性化支援センタ", latlng: [39.914534,140.16146],
+      content: "<A href=\"https://www.facebook.com/gojome.ckc\">五城目町地域活性化支援センタ</A>" +
+      "<br/>〒018-1713 秋田県南秋田郡五城目町馬場目蓬内台117-1" +
+      "", image: "center.jpg" },
+    { latlng: [39.892666,140.241205] },
+    { latlng: [39.907555,140.184248] },
+    { latlng: [39.908164,140.187214] },
+    { latlng: [39.906518,140.189982] },
+    { latlng: [39.909033,140.192273] },
+    { latlng: [39.910125,140.198684] },
+    { latlng: [39.910048,140.202383] },
+    { latlng: [39.912942,140.208667] },
+    { latlng: [39.917266,140.215978] },
+    { latlng: [39.918986,140.220817] },
+    { latlng: [39.917381,140.232345] },
+    { latlng: [39.919099,140.234491] },
+    { latlng: [39.917558,140.237576] },
+    { latlng: [39.917782,140.23848] },
+
+    // 小松
+    { name: "仙入橋園地", latlng: [39.909826,140.249312] },
+    { name: "臼内園地",   latlng: [39.9016804,140.25604] },
+    { name: "魚止めの滝", latlng: [39.8828421,140.266153], image: "19_206_68.jpg" },
+    { name: "三階の滝",   latlng: [39.876019,140.275828] },
+    { name: "光沢園地",   latlng: [39.8445319,140.257785] },
+    { name: "デロ杉流域/ネコバリ岩",  latlng: [39.8729787,140.232754],
+      content: "岩がでかい！<p><img src=\"assets/image/IMG_0273.JPG\">", image: "IMG_0227.JPG\"><br><b>私です。</b>(※と言いつつ髙橋さん)<span style=\"" }
+
+  ];
+  var babamesho = points[0];
+  var nekobari = points[1];
+  var center = pointToLatLng(babamesho);
+
+  var gmapParams = {
+    zoom: 17,
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+    center: center
+  };
+  gmap = new google.maps.Map(document.getElementById("map"), gmapParams);
+
+ /* var marker = new google.maps.Marker({
+    position: center,
+    map: gmap
+  });*/
+
+  points.forEach(
+    function a(point) {
+      name = point.name;
+      if ( point.name == undefined ){
+        name = "馬場川";
+      }
+      content = "<font size=3><b>" + name + "</b></font>";
+      
+      if ( point.content ) 
+        content += "<br>" + point.content;
+      else
+        content += "<br>たくさん釣れました！！";
+
+      if ( point.image )
+        content += "<p><img src=\"assets/image/" + point.image + "\">"
+      else
+        content += "<p><img src=\"assets/image/yamame400.jpg\">"
+
+      var infoWindow = new google.maps.InfoWindow({  
+        content: content,  
+      });
+      
+
+      var marker = new google.maps.Marker({
+        position: pointToLatLng(point),
+        map: gmap,
+        icon: "assets/image/sakana.gif",
+        title: point.name
+      });
+      
+      google.maps.event.addListener(marker, 'click', function(event) {  
+        infoWindow.open(gmap, marker);  
+      });  
+    /*marker(point, gmap); console.log(point);*/ }
+  );
+}
+
+function submitA() {
+  var point = 
+    { name: "五城目町地域活性化支援センタ", latlng: [39.914534,140.16246],
+      content: "<A href=\"https://www.facebook.com/gojome.ckc\">五城目町地域活性化支援センタ</A>" +
+      "<br/>〒018-1713 秋田県南秋田郡五城目町馬場目蓬内台117-1" +
+      "", image: "center.jpg" }
+  ;
+
+      name = point.name;
+      if ( point.name == undefined ){
+        name = "馬場川";
+      }
+      content = "<font size=3><b>" + name + "</b></font>";
+      
+      if ( point.content ) 
+        content += "<br>" + point.content;
+      else
+        content += "<br>たくさん釣れました！！";
+
+      if ( point.image )
+        content += "<p><img src=\"assets/image/" + point.image + "\">"
+      else
+        content += "<p><img src=\"assets/image/yamame400.jpg\">"
+
+      var infoWindow = new google.maps.InfoWindow({  
+        content: content,  
+      });
+      
+
+      var marker = new google.maps.Marker({
+        position: pointToLatLng(point),
+        map: gmap,
+        icon: "assets/image/sakana.gif",
+        title: point.name
+      });
+      
+      google.maps.event.addListener(marker, 'click', function(event) {  
+        infoWindow.open(gmap, marker);  
+      });  
+}
+
+$(function() {
+  renderMap();
+});
+-->
+</script>
+
+<% end %> 
+
+ <div id="map" style="width:780px; height:520px"></div>
