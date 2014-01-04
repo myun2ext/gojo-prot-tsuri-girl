@@ -1,4 +1,6 @@
 GojoProto::Application.routes.draw do
+  resources :recipes
+
   resources :entries
 
   root "home#index"
