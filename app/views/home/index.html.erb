@@ -93,7 +93,7 @@ function renderMap() {
       var marker = new google.maps.Marker({
         position: pointToLatLng(point),
         map: gmap,
-        icon: "assets/image/sakana.gif",
+        icon: "assets/sakana.gif",
         title: point.name
       });
       
@@ -144,13 +144,16 @@ function submitA() {
         infoWindow.open(gmap, marker);  
       });  
 }
+-->
+</script>
 
+<% end %> 
+<script>
+<!--
 $(function() {
   renderMap();
 });
 -->
 </script>
-
-<% end %> 
 
  <div id="map" style="width:780px; height:520px"></div>
