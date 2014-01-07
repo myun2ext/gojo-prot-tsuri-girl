@@ -99,7 +99,16 @@ function renderMap() {
       
       google.maps.event.addListener(marker, 'click', function(event) {  
         infoWindow.open(gmap, marker);  
-      });  
+      });
+
+
+      navigator.geolocation.watchPosition(
+        function(position){
+          currentLat = position.coords.latitude;
+          currentLong = position.coords.longitude;
+          $(".entryPosition").html(currentLat + ", " + currentLong);
+        }
+      );
     /*marker(point, gmap); console.log(point);*/ }
   );
 }
@@ -154,7 +163,7 @@ $(function() {
   renderMap();
   $('body').css({'width': '100%', 'height': '100%'});
   $('html').css({'width': '100%', 'height': '100%'});
-  $('#map').css({'width': '100%', 'height': '92%'});
+  $('#map').css({'width': '100%', 'height': '90%'});
   google.maps.event.trigger(map, 'resize');
 });
 -->
@@ -177,7 +186,7 @@ $(function() {
     <p><input input type="file"></input></p>
 
     <h4>場所</h4>
-    <p>取得中...</p>
+    <p class="entryPosition">取得中...</p>
   </div>
   <div class="modal-footer">
     <a href="#" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" onclick="postEntry()">送信</a>
