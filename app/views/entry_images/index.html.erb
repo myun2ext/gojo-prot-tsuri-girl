@@ -1,0 +1,29 @@
+<h1>Listing entry_images</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Entry</th>
+      <th>Text</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @entry_images.each do |entry_image| %>
+      <tr>
+        <td><%= entry_image.entry %></td>
+        <td><%= entry_image.text %></td>
+        <td><%= link_to 'Show', entry_image %></td>
+        <td><%= link_to 'Edit', edit_entry_image_path(entry_image) %></td>
+        <td><%= link_to 'Destroy', entry_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Entry image', new_entry_image_path %>

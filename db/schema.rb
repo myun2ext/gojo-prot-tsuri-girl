@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104161628) do
+ActiveRecord::Schema.define(version: 20140207191048) do
 
   create_table "entries", force: true do |t|
     t.string   "name"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20140104161628) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "entry_images", force: true do |t|
+    t.integer  "entry_id"
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entry_images", ["entry_id"], name: "index_entry_images_on_entry_id", using: :btree
 
   create_table "recipes", force: true do |t|
     t.string   "name"
