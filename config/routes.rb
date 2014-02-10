@@ -6,6 +6,8 @@ GojoProto::Application.routes.draw do
   resources :entries
 
   root "home#index"
+
+  resource :usage, controller: :usage
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
