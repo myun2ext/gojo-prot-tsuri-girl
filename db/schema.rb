@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310055852) do
+ActiveRecord::Schema.define(version: 20140310061020) do
 
   create_table "entried_positions", force: true do |t|
     t.integer  "entry_id"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20140310055852) do
     t.string   "name"
     t.string   "wroted_by"
     t.text     "howtomake"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password"
+    t.string   "name"
+    t.string   "screen_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

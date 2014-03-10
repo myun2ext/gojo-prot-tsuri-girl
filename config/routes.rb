@@ -1,4 +1,6 @@
 GojoProto::Application.routes.draw do
+  resources :users
+
   resources :entried_positions
 
   resources :entry_images
