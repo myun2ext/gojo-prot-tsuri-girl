@@ -1,4 +1,6 @@
 GojoProto::Application.routes.draw do
+  resources :entried_positions
+
   resources :entry_images
 
   resources :recipes

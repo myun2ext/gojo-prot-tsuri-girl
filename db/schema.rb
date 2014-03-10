@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207191346) do
+ActiveRecord::Schema.define(version: 20140310055852) do
+
+  create_table "entried_positions", force: true do |t|
+    t.integer  "entry_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "label"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entried_positions", ["entry_id"], name: "index_entried_positions_on_entry_id", using: :btree
 
   create_table "entries", force: true do |t|
     t.string   "name"

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Entry:
+  = @entried_position.entry
+%p
+  %b Latitude:
+  = @entried_position.latitude
+%p
+  %b Longitude:
+  = @entried_position.longitude
+%p
+  %b Label:
+  = @entried_position.label
+%p
+  %b Owner:
+  = @entried_position.owner_id
+
+= link_to 'Edit', edit_entried_position_path(@entried_position)
+\|
+= link_to 'Back', entried_positions_path

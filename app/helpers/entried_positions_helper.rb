@@ -1,0 +1,2 @@
+module EntriedPositionsHelper
+end
