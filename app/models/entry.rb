@@ -3,8 +3,8 @@ class Entry < ActiveRecord::Base
   has_one :entried, as: :entried_position  # aliae
   has_one :position, as: :entried_position # alias
 
-  delegate :latitude, to: :entried_position
-  delegate :longitude, to: :entried_position
+  delegate :latitude, :latitude=, to: :entried_position, allow_nil: true
+  delegate :longitude, :longitude=, to: :entried_position, allow_nil: true
 
   def self.new(attributes = nil, options = {})
     new_entry = super(attributes, options)
