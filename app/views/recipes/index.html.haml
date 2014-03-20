@@ -1,0 +1,27 @@
+%h1 レシピ
+
+%p 自分なりの料理レシピを投稿してみよう！！
+
+%p ※ここでは、釣った魚の、自分なりの調理レシピを公開、共有する場所です。
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Wroted by
+      %th Howtomake
+      %th
+      %th
+      %th
+  %tbody
+    - @recipes.each do |recipe|
+      %tr
+        %td= recipe.name
+        %td= recipe.wroted_by
+        %td= recipe.howtomake
+        %td= link_to 'Show', recipe
+        %td= link_to 'Edit', edit_recipe_path(recipe)
+        %td= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+
+= link_to '投稿！', new_recipe_path
