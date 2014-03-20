@@ -1,14 +1,22 @@
 %p#notice= notice
 
-%h1= @recipe.name
+.show_recipe
+  %h1= @recipe.name
 
-投稿者: #{@recipe.wroted_by}
+  .wroted_by
+    投稿者: #{@recipe.wroted_by}
 
-#{image_tag @recipe.image.url(:medium)}
+  .recipe-image
+    #{image_tag @recipe.image.url(:medium)}
 
-%h2 作り方
+  %h2 作り方
 
-= @recipe.howtomake
+  .recipe-howtomake
+    = simple_format @recipe.howtomake
 
-= link_to '編集', edit_recipe_path(@recipe)
-= link_to 'レシピ一覧へ', recipes_path
+  .edit-recipe
+    &gt;
+    = link_to '編集', edit_recipe_path(@recipe)
+  .recipe-to-back
+    &gt;
+    = link_to 'レシピ一覧へ', recipes_path

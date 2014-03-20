@@ -7,3 +7,8 @@ ja:
         wroted_by: 投稿者
         howtomake: 作り方
         image: 料理写真
+  helpers:
+    submit:
+      create: 投稿
+      submit: 保存
+      update: 更新
