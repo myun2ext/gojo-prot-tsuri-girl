@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @recipe.name %>
-</p>
+<h1><%= @recipe.name %></h1>
 
-<p>
-  <strong>Wroted by:</strong>
-  <%= @recipe.wroted_by %>
-</p>
+投稿者: <%= @recipe.wroted_by %>
 
-<p>
-  <strong>Howtomake:</strong>
-  <%= @recipe.howtomake %>
-</p>
+<%= image_tag @recipe.image.url(:medium) %>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<h2>作り方</h2>
+
+<%= @recipe.howtomake %>
+
+<%= link_to '編集', edit_recipe_path(@recipe) %>
+<%= link_to 'レシピ一覧へ', recipes_path %>
