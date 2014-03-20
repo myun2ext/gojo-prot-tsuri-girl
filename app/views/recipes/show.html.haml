@@ -7,7 +7,7 @@
     投稿者: #{@recipe.wroted_by}
 
   .recipe-image
-    #{image_tag @recipe.image.url(:medium)}
+    = image_tag @recipe.image.url(:medium)
 
   %h2 作り方
 

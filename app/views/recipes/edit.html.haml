@@ -2,4 +2,5 @@
 
 = render 'form'
 
+= link_to 'レシピを削除', @recipe, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }
 = link_to '戻る', @recipe
