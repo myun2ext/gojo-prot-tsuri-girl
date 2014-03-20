@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%h1= @recipe.name
+
+投稿者: #{@recipe.wroted_by}
+
+#{image_tag @recipe.image.url(:medium)}
+
+%h2 作り方
+
+= @recipe.howtomake
+
+= link_to '編集', edit_recipe_path(@recipe)
+= link_to 'レシピ一覧へ', recipes_path
