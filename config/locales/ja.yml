@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+    attributes:
+      recipe:
+        name: レシピ名
+        wroted_by: 投稿者
+        howtomake: 作り方
+        image: 料理写真
