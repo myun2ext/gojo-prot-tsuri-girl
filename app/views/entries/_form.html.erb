@@ -27,6 +27,13 @@
     <%= f.label :longitude %><br>
     <%= f.text_field :longitude %>
   </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <% if @entry.image.present? %>
+      <%= image_tag @entry.image.url(:medium) %>
+    <%- end %>
+    <%= f.file_field :image %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

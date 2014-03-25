@@ -1,0 +1,27 @@
+%h1 Listing entried_positions
+
+%table
+  %tr
+    %th Entry
+    %th Latitude
+    %th Longitude
+    %th Label
+    %th Owner
+    %th
+    %th
+    %th
+
+  - @entried_positions.each do |entried_position|
+    %tr
+      %td= entried_position.entry
+      %td= entried_position.latitude
+      %td= entried_position.longitude
+      %td= entried_position.label
+      %td= entried_position.owner_id
+      %td= link_to 'Show', entried_position
+      %td= link_to 'Edit', edit_entried_position_path(entried_position)
+      %td= link_to 'Destroy', entried_position, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Entried position', new_entried_position_path

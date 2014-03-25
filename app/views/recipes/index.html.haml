@@ -1,0 +1,11 @@
+%h1 レシピ
+
+%p 自分なりの料理レシピを投稿してみよう！！
+
+%p ※ここでは、釣った魚の、自分なりの調理レシピを公開、共有する場所です。
+
+- @recipes.each do |recipe|
+  = link_to image_tag(recipe.image.url(:medium), { alt: recipe.name, title: recipe.name }), recipe
+
+%p
+  .btn= link_to '投稿！', new_recipe_path

@@ -11,13 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140207191346) do
+ActiveRecord::Schema.define(version: 20140310073537) do
+
+  create_table "entried_positions", force: true do |t|
+    t.integer  "entry_id"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "label"
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "entried_positions", ["entry_id"], name: "index_entried_positions_on_entry_id", using: :btree
 
   create_table "entries", force: true do |t|
     t.string   "name"
     t.text     "text"
-    t.float    "latitude"
-    t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -39,6 +50,19 @@ ActiveRecord::Schema.define(version: 20140207191346) do
     t.string   "name"
     t.string   "wroted_by"
     t.text     "howtomake"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password"
+    t.string   "name"
+    t.string   "screen_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
